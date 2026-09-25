@@ -69,7 +69,7 @@ Firefox：存储 → Cookies
 选择 glados.cloud
 复制完整 Cookie 内容
 
-koa:sess=xxxxxx; koa:sess.sig=yyyyyy
+gld:sess=xxxxxx; gld:sess.sig=yyyyyy
 ⚠️ 必须是完整的一整段，不要只复制一半
 
 
@@ -79,13 +79,13 @@ koa:sess=xxxxxx; koa:sess.sig=yyyyyy
 将两个值按以下格式组合，**注意格式必须完全正确**：
 
 ```text
-koa:sess=你的长字符串; koa:sess.sig=你的短字符串
+gld:sess=你的长字符串; gld:sess.sig=你的短字符串
 ```
 
 **正确示例**：
 
 ```text
-koa:sess=eyJ1c2VySWQiOjEyMzQ1Njc4OTB9; koa:sess.sig=abcdef123456
+gld:sess=eyJ1c2VySWQiOjEyMzQ1Njc4OTB9; gld:sess.sig=abcdef123456
 ```
 
 **常见错误**：
