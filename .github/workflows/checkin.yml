@@ -25,7 +25,7 @@ jobs:
       - name: Random Wait
         # 随机等待 1 到 1800 秒（即 30 分钟内随机）
         run: |
-          wait_time=$((1 + RANDOM % 120))
+          wait_time=$((1 + RANDOM % 1800))
           echo "为了模拟真人行为，随机等待 ${wait_time} 秒后执行..."
           sleep ${wait_time}
 
