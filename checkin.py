@@ -469,7 +469,7 @@ def auto_exchange(g, plan_id):
         return "⚠️ 兑换跳过(积分查询失败)"
 
     if pts < need:
-        return f"⏭️ 积分不足({pts}/{need})，攒够自动兑换{days}天"
+        return f" 积分不足({pts}/{need})"
 
     res = g.exchange(plan_id)
     if res and res.get('code') == 0:
