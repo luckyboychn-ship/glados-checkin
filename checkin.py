@@ -743,11 +743,11 @@ def main():
             # 2. 将旧版纯数字时间格式化出来
             old_time_format = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
             
-            # 3. 把“策略与时间”作为最后一行追加到 HTML 内容后面，用换行隔开
-            footer_line = f"\n\n策略: {target_plan} | 时间: {old_time_format}"
+            # 3. 将策略与时间直接用 HTML 换行拼在内容最下方，确保能通过 Telegram 的过滤
+            footer_html = f"<br><br>策略: {target_plan} | 时间: {old_time_format}"
+            tg_content = "".join(results) + footer_html
             
-            # 由于 telegram_push 内部会对 HTML 进行过滤和换行处理，我们将 footer 加在拼接的文本中
-            tg_content = "".join(results) + footer_line
+            # 注意：这里必须传入我们上面组装好的 tg_title 和 tg_content！
             telegram_push(tg_token, tg_chat_id, title, content)
 
     return 0 if success_cnt == len(cookies) else 1
