@@ -736,6 +736,13 @@ def main():
         if serverchan_sendkey:
             serverchan_push(serverchan_sendkey, title, content)
         if tg_token and tg_chat_id:
+            # 针对 Telegram 专属定制：恢复简洁标题，并将时间恢复为旧版纯数字格式
+            target_plan = os.environ.get("EXCHANGE_PLAN", "plan500")
+            tg_title = f"GLaDOS签到: 成功{success_cnt}/{len(cookies)}"
+            
+            # 使用旧版的时间格式（直接调用脚本里定义的 beijing_time() 或获取纯数字时间）
+            old_time_format = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
+            tg_content = "".join(results) + f"\n\n策略: {target_plan} | 时间: {old_time_format}"
             telegram_push(tg_token, tg_chat_id, title, content)
 
     return 0 if success_cnt == len(cookies) else 1
