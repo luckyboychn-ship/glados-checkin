@@ -736,13 +736,18 @@ def main():
         if serverchan_sendkey:
             serverchan_push(serverchan_sendkey, title, content)
         if tg_token and tg_chat_id:
-            # 针对 Telegram 专属定制：恢复简洁标题，并将时间恢复为旧版纯数字格式
+            # 1. 恢复旧版简洁标题
             target_plan = os.environ.get("EXCHANGE_PLAN", "plan500")
             tg_title = f"GLaDOS签到: 成功{success_cnt}/{len(cookies)}"
             
-            # 使用旧版的时间格式（直接调用脚本里定义的 beijing_time() 或获取纯数字时间）
+            # 2. 将旧版纯数字时间格式化出来
             old_time_format = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
-            tg_content = "".join(results) + f"\n\n策略: {target_plan} | 时间: {old_time_format}"
+            
+            # 3. 把“策略与时间”作为最后一行追加到 HTML 内容后面，用换行隔开
+            footer_line = f"\n\n策略: {target_plan} | 时间: {old_time_format}"
+            
+            # 由于 telegram_push 内部会对 HTML 进行过滤和换行处理，我们将 footer 加在拼接的文本中
+            tg_content = "".join(results) + footer_line
             telegram_push(tg_token, tg_chat_id, title, content)
 
     return 0 if success_cnt == len(cookies) else 1
