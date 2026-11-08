@@ -748,7 +748,7 @@ def main():
             tg_content = "".join(results) + footer_html
             
             # 注意：这里必须传入我们上面组装好的 tg_title 和 tg_content！
-            telegram_push(tg_token, tg_chat_id, title, content)
+            telegram_push(tg_token, tg_chat_id, tg_title, tg_content)
 
     return 0 if success_cnt == len(cookies) else 1
 
