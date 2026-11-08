@@ -710,10 +710,10 @@ def main():
 """)
 
     # Push
-    push_level = os.environ.get("PUSH_LEVEL", "fail_only").lower()
+    # 将默认策略改为 always（每次都推送），但若你想用 fail_only，
+    # 上面提到的“兑换结果异常也会触发推送”的逻辑依然会完美生效。
+    push_level = os.environ.get("PUSH_LEVEL", "always").lower()
 
-    # Exchange outcomes (success or failure) are worth notifying even when
-    # PUSH_LEVEL=fail_only, otherwise an always-failing exchange stays silent.
     if push_level == "fail_only" and success_cnt == len(cookies) and exchange_events == 0:
         log("⏭️ 根据 PUSH_LEVEL=fail_only 设置，所有账号签到成功，跳过推送")
         return 0
