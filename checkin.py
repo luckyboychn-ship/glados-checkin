@@ -729,7 +729,7 @@ def main():
         content = "".join(results)
         if success_cnt < len(cookies):
             content += '<p>以上仅反映本次运行。失败账号的今日签到状态未知，请结合当天其他成功运行或官网签到日历核对。</p>'
-        content = "\n\n".join(results) + f"\n\n策略: {target_plan} | 时间: {cur_time}"
+        content += f"<br><small>时间（北京时间 UTC+8）: {beijing_time()}</small>"
         
         if ptoken:
             pushplus(ptoken, title, content)
