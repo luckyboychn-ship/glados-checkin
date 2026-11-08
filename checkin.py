@@ -738,7 +738,7 @@ def main():
         if tg_token and tg_chat_id:
             # 1. 恢复旧版简洁标题
             target_plan = os.environ.get("EXCHANGE_PLAN", "plan500")
-            tg_title = f"GLaDOS签到: 成功{success_cnt}/{len(cookies)}"
+            tg_title = f"GLaDOS签到: 本次运行成功{success_cnt}/{len(cookies)}"
             
             # 2. 将旧版纯数字时间格式化出来
             old_time_format = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
