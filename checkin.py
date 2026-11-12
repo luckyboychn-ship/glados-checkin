@@ -8,7 +8,7 @@
 - 精准获取当前积分 (Points)
 - 积分达标自动兑换会员天数（默认 500 分兑换 100 天，可配置/关闭）
 - PushPlus / Server酱 微信推送（自带敏感词脱敏，防微信拦截）
-- 智能多域名切换 (优先 glados.cloud)
+- 智能多域名切
 - 支持 Cookie-Editor 导出格式
 """
 
@@ -29,7 +29,7 @@ if sys.platform.startswith('win'):
 
 # ================= 配置 =================
 
-# 域名优先级：Cloud 第一
+# 域名优先
 DOMAINS = [
     "https://glados.network",
     "https://glados.rocks", 
@@ -42,9 +42,8 @@ CHALLENGE_SALT = "glados-observe-v1"
 CHALLENGE_MIN_WAIT_SECONDS = 2.7
 
 DEFAULT_USER_AGENT = (
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-    'AppleWebKit/537.36 (KHTML, like Gecko) '
-    'Chrome/120.0.0.0 Safari/537.36'
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) '
+    'Gecko/20100101 Firefox/160.0'
 )
 
 HEADERS = {
