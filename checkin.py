@@ -31,9 +31,9 @@ if sys.platform.startswith('win'):
 
 # 域名优先级：Cloud 第一
 DOMAINS = [
-    "https://glados.cloud",
-    "https://glados.rocks", 
     "https://glados.network",
+    "https://glados.rocks", 
+    "https://glados.cloud",
 ]
 
 # 2026 前端 613 模块逆向出的固定盐值: [103,108,97,100,111,115,45,111,98,115,101,114,118,101,45,118,49]
